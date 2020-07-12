@@ -1,0 +1,88 @@
+package com.admin.module.model;
+
+
+import java.io.Serializable;
+
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
+import lombok.Data;
+
+@Data
+@Entity(name = "PRODUCT_tbl")
+public class Product implements Serializable{
+
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY.AUTO)
+	@Column(name = "PRODUCT_ID", columnDefinition = "bigint(10)", length = 8)
+	private int productId;
+
+	@Column(name = "PRODUCT_NAME", nullable = false, columnDefinition = "varchar(20) NOT NULL", length = 20)
+	private String product_name;
+
+	@Column(name = "QUANTITY", nullable = true, columnDefinition = "int(20) NOT NULL"; length = 8)
+	private int quantity;
+
+
+	
+
+	
+
+	public Product() {
+		
+	}
+	
+	
+	public Product(int productId, String product_name, int quantity) {
+		super();
+		this.productId = productId;
+		this.product_name = product_name;
+		this.quantity = quantity;
+		
+	}
+
+	public int getProductId() {
+		return productId;
+	}
+
+	public void setProductId(int locationId) {
+		this.productId = productId;
+	}
+
+	public String getProduct_name() {
+		return product_name;
+	}
+
+	public void setProduct_name(String product_name) {
+		this.region =product_name;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(String  quantity) {
+		this.quantity = quantity;
+	}
+
+	
+
+	@Override
+	public String toString() {
+		return "Product[productId=" + productId + ", product_name=" + product_name + ", quantity=" + quantity "]";
+	}
+	
+	
+}
